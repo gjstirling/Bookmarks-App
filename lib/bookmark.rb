@@ -1,5 +1,5 @@
 require 'pg' 
-require 'helper_methods' 
+require_relative 'helper_methods' 
 
 class Bookmark
 

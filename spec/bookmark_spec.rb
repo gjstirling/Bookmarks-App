@@ -4,7 +4,6 @@ require 'database_helpers'
 describe Bookmark do
   describe '.all' do
     it 'returns a list of bookmarks' do
-      connection = PG.connect(dbname: 'bookmark_manager_test')
    
       # Add the test data
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
@@ -27,7 +26,7 @@ describe Bookmark do
       persisted_data = persisted_data(id: bookmark.id)
   
       expect(bookmark).to be_a Bookmark
-      expect(bookmark.id).to eq 1
+      expect(bookmark.id).to eq '1'
       expect(bookmark.title).to eq 'Test Bookmark'
       expect(bookmark.url).to eq 'http://www.example.org'
     end
