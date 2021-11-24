@@ -7,5 +7,6 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'capybara', group: :test
 gem 'rspec', group: :test
+gem 'sinatra-flash'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
