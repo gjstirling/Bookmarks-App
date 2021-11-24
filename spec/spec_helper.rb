@@ -1,4 +1,4 @@
-require_relative './clear_test_db'
+require_relative 'database_helpers'
 # Set the environment to "test"
 ENV['RACK_ENV'] = 'test'
 
