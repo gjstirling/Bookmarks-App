@@ -40,13 +40,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   patch '/bookmarks/:id' do
-    connection = PG.connect(dbname: 'bookmark_manager_test')
-    connection.exec_params(
-      "UPDATE bookmarks SET url = $1, title = $2 WHERE id = $3",
-      [ params[:url], params[:title], params[:id] ]
-    )
-  
-    redirect('/bookmarks')
+    Bookmark.update(id: params[:id], title: params[:title], url: params[:url])
+    redirect '/bookmarks'
   end
 
   run! if app_file == $0
