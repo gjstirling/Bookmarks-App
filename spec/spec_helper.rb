@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 # Set the environment to "test"
 ENV['ENVIRONMENT'] = 'test'
@@ -15,7 +16,6 @@ require_relative './unit/database_helpers'
 Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
-  
   config.before(:each) do
     clear_test_database
   end
@@ -50,4 +50,3 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
-  

@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 feature 'Viewing bookmarks' do
   scenario 'visiting the index page' do
     visit('/')
-    expect(page).to have_content "Bookmark Manager"
+    expect(page).to have_content 'Bookmark Manager'
   end
 end
 
 feature 'Viewing bookmarks' do
   scenario 'A user can see bookmarks' do
-    
     # Add the test data
     Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
     Bookmark.create(url: 'http://www.destroyallsoftware.com', title: 'Destroy All Software')
