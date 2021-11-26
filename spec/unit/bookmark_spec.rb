@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'bookmark'
-require './spec/unit/database_helpers'
+require '/Users/graemestirling/Makers/bookmarks/spec/database_helpers.rb'
 
 describe Bookmark do
   describe '.all' do
@@ -63,17 +63,14 @@ describe Bookmark do
     end
   end
 
+  let(:comment_class) { double(:comment_class) }
+
   describe '#comments' do
-    it 'returns a list of comments on the bookmark' do
+    it 'calls .where on the Comment class' do
       bookmark = Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
-      DatabaseConnection.query(
-        "INSERT INTO comments (id, text, bookmark_id) VALUES(1, 'Test comment', $1)",
-        [bookmark.id]
-      )
-  
-      comment = bookmark.comments.first
-  
-      expect(comment['text']).to eq 'Test comment'
+      expect(comment_class).to receive(:where).with(bookmark_id: bookmark.id)
+
+      bookmark.comments(comment_class)
     end
   end
 end

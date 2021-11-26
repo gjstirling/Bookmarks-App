@@ -10,14 +10,15 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
-require_relative './unit/database_helpers'
+require_relative 'database_helpers'
+require_relative 'setup_test_database'
 
 # Tell Capybara to talk to BookmarkManager
 Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
   config.before(:each) do
-    clear_test_database
+    setup_test_database
   end
 
   # rspec-expectations config goes here. You can use an alternate
